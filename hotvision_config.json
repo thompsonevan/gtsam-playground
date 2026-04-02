@@ -1,0 +1,9 @@
+{
+    "rootTableName": "HOTVision",
+    "ntServerURI": "172.0.0.1",
+    "cameras": [
+      { "subtableName": "camera_0", "pixelNoise": 10.0 }
+    ],
+    "rotNoise": [0.087, 0.087, 0.087],
+    "transNoise": [0.001, 0.001, 0.001]
+  }

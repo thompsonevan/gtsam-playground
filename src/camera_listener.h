@@ -58,6 +58,9 @@ public:
   std::vector<CameraVisionObservation> Update();
 
 private:
+  // Whether we're consuming HOTVision topics instead of PhotonVision topics.
+  bool useHotvision = false;
+
   // Camera (pinhole) calibration coefficients
   std::optional<gtsam::Cal3_S2> cameraK;
   // Camera offset
@@ -71,6 +74,10 @@ private:
   nt::StructSubscriber<frc::Transform3d> robotTcamSub;
   // Camera calibration; assume all pixel inputs are already undistorted
   nt::DoubleArraySubscriber pinholeIntrinsicsSub;
+
+  // HOTVision detection stream: flattened double array per timestamp.
+  // Format: [id0, c0x,c0y,c1x,c1y,c2x,c2y,c3x,c3y, id1, ...].
+  nt::DoubleArraySubscriber hotvisionTagSub;
 
   ::gtsam::noiseModel::Isotropic::shared_ptr measurementNoise;
 };
