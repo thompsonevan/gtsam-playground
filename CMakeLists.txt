@@ -22,7 +22,7 @@ set(WPILIB_VERSION "4.3-2")
 set(BUILD_TYPE "static")
 
 if (NOT BUILD_ARCH)
-  set(BUILD_ARCH "linuxx86-64")
+  set(BUILD_ARCH "linuxarm64")
 endif()
 
 include(FetchContent)
